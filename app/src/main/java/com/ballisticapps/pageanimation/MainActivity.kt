@@ -154,28 +154,13 @@ fun MobileFriendlyBook(
                             .padding()
                     )
 
-                    Box(
-                        modifier = Modifier
-                            .matchParentSize()
-                            .background(
-
-                                Brush.horizontalGradient(
-                                    colors = listOf(
-                                        if (currentPage == 0) Color.Transparent else
-                                        Color.Black.copy(alpha = 0.5f),
-                                        Color.Transparent,
-                                    ),
-                                    startX = 0f,
-                                    endX = 24f
-                                )
-                            )
-                    )
                     Column(
                         modifier = Modifier
                             .fillMaxSize()
                             .padding(16.dp, 8.dp, 16.dp, 8.dp),
                         horizontalAlignment = Alignment.CenterHorizontally,
-                    ) {
+                        ) {
+
                         Text(
                             text = "Page ${pageIndex+1}",
                             style = TextStyle(
@@ -227,6 +212,22 @@ fun MobileFriendlyBook(
                             }
                         }
                     }
+                    Box(
+                        modifier = Modifier
+                            .matchParentSize()
+                            .background(
+                                Brush.horizontalGradient(
+                                    colors = listOf(
+                                        if(rotationY < -90f) Color.Transparent else Color.Black.copy(alpha = 0.5f),
+                                        if (currentPage == 0) Color.Transparent else
+                                            Color.Black.copy(alpha = 0.5f),
+                                        Color.Transparent,
+                                    ),
+                                    startX = 0f,
+                                    endX = 24f
+                                )
+                            )
+                    )
                 }
             }
         }
