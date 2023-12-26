@@ -160,7 +160,6 @@ fun MobileFriendlyBook(
                             .padding(16.dp, 8.dp, 16.dp, 8.dp),
                         horizontalAlignment = Alignment.CenterHorizontally,
                         ) {
-
                         Text(
                             text = "Page ${pageIndex+1}",
                             style = TextStyle(
@@ -218,8 +217,7 @@ fun MobileFriendlyBook(
                             .background(
                                 Brush.horizontalGradient(
                                     colors = listOf(
-                                        if(rotationY < -90f) Color.Transparent else Color.Black.copy(alpha = 0.5f),
-                                        if (currentPage == 0) Color.Transparent else
+                                        if (currentPage == 0 && rotationY > -90f) Color.Transparent else
                                             Color.Black.copy(alpha = 0.5f),
                                         Color.Transparent,
                                     ),
